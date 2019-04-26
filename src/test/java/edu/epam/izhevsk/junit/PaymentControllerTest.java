@@ -33,7 +33,7 @@ public class PaymentControllerTest {
     @Test
     public void testAuthUserOnce() throws InsufficientFundsException {
         paymentController.deposit(50L, 100L);
-        verify(accountService, atLeastOnce()).isUserAuthenticated(100L);
+        verify(accountService, times(1)).isUserAuthenticated(100L);
     }
 
     @Test(expected = SecurityException.class)
